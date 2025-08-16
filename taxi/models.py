@@ -19,15 +19,7 @@ class Driver(AbstractUser):
     license_number = models.CharField(
         max_length=255,
         unique=True,
-        help_text="Must be exactly 3 uppercase letters"
-                  " followed by 5 digits (e.g., ABC12345).",
-        validators=[
-            RegexValidator(
-                regex=r"^[A-Z]{3}\d{5}$",
-                message="Must be exactly 3 uppercase letters "
-                "followed by 5 digits (e.g., ABC12345).",
-            )
-        ],
+        help_text="Must be exactly 3 uppercase letter followed by 5 digits (e.g., ABC12345).",
     )
 
     class Meta:
