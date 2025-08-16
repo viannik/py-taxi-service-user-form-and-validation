@@ -21,7 +21,8 @@ class CarCreationForm(forms.ModelForm):
         license_number = self.cleaned_data.get("license_number")
         if not RegexValidator(
             regex=r"^[A-Z]{3}\d{5}$",
-            message="Must be exactly 3 uppercase letters followed by 5 digits (e.g., ABC12345).",
+            message="Must be exactly 3 uppercase letters"
+                    " followed by 5 digits (e.g., ABC12345).",
         )(license_number):
             raise forms.ValidationError("Invalid license number format.")
         return license_number
@@ -41,7 +42,8 @@ class DriverCreationForm(UserCreationForm):
         license_number = self.cleaned_data.get("license_number")
         if not RegexValidator(
             regex=r"^[A-Z]{3}\d{5}$",
-            message="Must be exactly 3 uppercase letters followed by 5 digits (e.g., ABC12345).",
+            message="Must be exactly 3 uppercase letters"
+                    " followed by 5 digits (e.g., ABC12345).",
         )(license_number):
             raise forms.ValidationError("Invalid license number format.")
         return license_number
